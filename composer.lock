@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f14f3e6acbcc16b5010ae9dee9a2318",
+    "content-hash": "ce0ca1d26f19a40378a3da558df9e171",
     "packages": [
         {
             "name": "react/event-loop",
@@ -4492,16 +4492,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.6.8",
+            "version": "1.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "d76498c5531232cb8386ceb6004f7e013138d3ba"
+                "reference": "8c98899c7c54251a098befd23b50a983594a20f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d76498c5531232cb8386ceb6004f7e013138d3ba",
-                "reference": "d76498c5531232cb8386ceb6004f7e013138d3ba",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8c98899c7c54251a098befd23b50a983594a20f9",
+                "reference": "8c98899c7c54251a098befd23b50a983594a20f9",
                 "shasum": ""
             },
             "require": {
@@ -4527,7 +4527,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.6.8"
+                "source": "https://github.com/phpstan/phpstan/tree/1.6.9"
             },
             "funding": [
                 {
@@ -4547,7 +4547,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-10T06:54:21+00:00"
+            "time": "2022-05-21T11:34:44+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -9228,16 +9228,16 @@
         },
         {
             "name": "wyrihaximus/async-test-utilities",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-async-test-utilities.git",
-                "reference": "6a25017554ebe4ba58ca456aedad73e71af09018"
+                "reference": "ea305901af5fc248e65cae841d08bc47b38edfb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/6a25017554ebe4ba58ca456aedad73e71af09018",
-                "reference": "6a25017554ebe4ba58ca456aedad73e71af09018",
+                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/ea305901af5fc248e65cae841d08bc47b38edfb5",
+                "reference": "ea305901af5fc248e65cae841d08bc47b38edfb5",
                 "shasum": ""
             },
             "require": {
@@ -9270,7 +9270,7 @@
             "description": "Test utilities for api-clients packages",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-async-test-utilities/issues",
-                "source": "https://github.com/WyriHaximus/php-async-test-utilities/tree/5.0.3"
+                "source": "https://github.com/WyriHaximus/php-async-test-utilities/tree/5.0.4"
             },
             "funding": [
                 {
@@ -9278,7 +9278,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-16T14:28:55+00:00"
+            "time": "2022-05-21T13:46:43+00:00"
         },
         {
             "name": "wyrihaximus/coding-standard",
