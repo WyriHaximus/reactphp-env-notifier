@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace WyriHaximus\Tests\TestUtilities;
+namespace WyriHaximus\Tests\React\Env\Notifier;
 
+use PHPUnit\Framework\Attributes\Test;
 use React\EventLoop\Loop;
 use Rx\Subject\Subject;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
@@ -13,14 +14,13 @@ use WyriHaximus\React\Env\Notifier\Notifier;
 use function assert;
 use function bin2hex;
 use function random_bytes;
+use function React\Async\await;
 use function Safe\putenv;
 use function strtoupper;
 
 final class NotifierTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function listen(): void
     {
         $oldValue = bin2hex(random_bytes(13));
@@ -38,7 +38,7 @@ final class NotifierTest extends AsyncTestCase
 
         $stream = Notifier::listen($name);
         self::assertInstanceOf(Subject::class, $stream);
-        $envVar = $this->await($stream->take(1)->toPromise());
+        $envVar = await($stream->take(1)->toPromise());
         assert($envVar instanceof EnvVar);
 
         $stream->dispose();
@@ -46,9 +46,7 @@ final class NotifierTest extends AsyncTestCase
         self::assertSame($newValue, $envVar->value);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function dispose(): void
     {
         $stream = Notifier::listen(bin2hex(random_bytes(13)));

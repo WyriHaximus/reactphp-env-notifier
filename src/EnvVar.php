@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace WyriHaximus\React\Env\Notifier;
 
-final class EnvVar
+final readonly class EnvVar
 {
     public function __construct(
-        public readonly string $name,
-        public readonly mixed $value,
+        public string $name,
+        public mixed $value,
     ) {
         // Got to love 8.1
     }
