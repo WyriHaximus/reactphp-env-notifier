@@ -11,9 +11,10 @@ use Rx\Subject\Subject;
 
 use function getenv;
 
+/** @api */
 final class Notifier
 {
-    private const CHECK_INTERVAL = 1;
+    private const int CHECK_INTERVAL = 1;
 
     public static function listen(string $name): Observable
     {
