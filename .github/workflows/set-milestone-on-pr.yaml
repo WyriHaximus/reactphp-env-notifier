@@ -21,16 +21,16 @@ jobs:
     outputs:
       check: ${{ steps.generate-checks-strategy.outputs.check }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - name: 'Get Previous tag'
         id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        uses: "WyriHaximus/github-action-get-previous-tag@04e8485ecb6487243907e330d522ff60f02283ce" # v1
         with:
           fallback: ${{ env.FALLBACK_TAG }}
       - name: 'Get next versions'
         id: semvers
         if: steps.previoustag.outputs.tag != env.FALLBACK_TAG
-        uses: "WyriHaximus/github-action-next-semvers@v1"
+        uses: "WyriHaximus/github-action-next-semvers@d079934efaf011a4cf8912d4637097fe35d32b93" # v1
         with:
           version: ${{ steps.previoustag.outputs.tag }}
       - name: 'Decide which version fits this PR'

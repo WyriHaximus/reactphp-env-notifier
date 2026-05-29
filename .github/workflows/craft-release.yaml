@@ -13,7 +13,7 @@ jobs:
       changelog: ${{ steps.changelog.outputs.changelog }}
     steps:
       - name: Generate changelog
-        uses: WyriHaximus/github-action-jwage-changelog-generator@v1
+        uses: WyriHaximus/github-action-jwage-changelog-generator@ede372670d88c4afefdffbcba5527e9e3a37778a # v1
         id: changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,7 +30,7 @@ jobs:
       - generate-changelog
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
         env:
           CHANGELOG: ${{ needs.generate-changelog.outputs.changelog }}
       - run: |
