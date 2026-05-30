@@ -18,13 +18,16 @@ composer require wyrihaximus/react-env-notifier
 
 # Usage
 
+Always run this in a fiber
+
 ```php
 use WyriHaximus\React\Env\Notifier\EnvVar;
 use WyriHaximus\React\Env\Notifier\Notifier;
 
-Notifier::listen('NAME')->subscribe(function (EnvVar $envVar) {
+/** @var EnvVar $envVar */
+foreach (Notifier::listen('NAME') as $envVar) {
     echo $envVar->name, ': ', $envVar->value, PHP_EOL; // Echo's NAME: VALUE
-});
+};
 
 putenv('NAME=VALUE');
 ```

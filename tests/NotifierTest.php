@@ -6,16 +6,13 @@ namespace WyriHaximus\Tests\React\Env\Notifier;
 
 use PHPUnit\Framework\Attributes\Test;
 use React\EventLoop\Loop;
-use Rx\Subject\Subject;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
-use WyriHaximus\React\Env\Notifier\EnvVar;
+use WyriHaximus\React\AwaitingIterator;
 use WyriHaximus\React\Env\Notifier\Notifier;
 
-use function assert;
 use function bin2hex;
 use function putenv;
 use function random_bytes;
-use function React\Async\await;
 use function strtoupper;
 
 final class NotifierTest extends AsyncTestCase
@@ -36,28 +33,18 @@ final class NotifierTest extends AsyncTestCase
             putenv($name . '=shouldnotreachourstream');
         });
 
-        /** @var Subject $stream */
+        $took   = 0;
         $stream = Notifier::listen($name);
-        $envVar = await($stream->take(1)->toPromise());
-        assert($envVar instanceof EnvVar);
+        foreach ($stream as $envVar) {
+            $took++;
+            self::assertSame($newValue, $envVar->value);
+            if (! ($stream instanceof AwaitingIterator)) {
+                continue;
+            }
 
-        $stream->dispose();
+            $stream->break();
+        }
 
-        self::assertSame($newValue, $envVar->value);
-    }
-
-    #[Test]
-    public function dispose(): void
-    {
-        /** @var Subject $stream */
-        $stream = Notifier::listen(bin2hex(random_bytes(13)));
-
-        Loop::addTimer(0.5, static function () use ($stream): void {
-            $stream->dispose();
-        });
-
-        Loop::run();
-
-        self::assertTrue($stream->isDisposed());
+        self::assertSame(1, $took);
     }
 }

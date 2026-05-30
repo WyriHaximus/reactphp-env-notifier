@@ -9,13 +9,15 @@ use React\EventLoop\TimerInterface;
 use Rx\Subject\Subject;
 
 use function getenv;
+use function WyriHaximus\React\awaitObservable;
 
 /** @api */
 final class Notifier
 {
     private const int CHECK_INTERVAL = 1;
 
-    public static function listen(string $name): Subject
+    /** @return iterable<EnvVar> */
+    public static function listen(string $name): iterable
     {
         $currentValue = getenv($name);
         $stream       = new Subject();
@@ -35,6 +37,7 @@ final class Notifier
             $currentValue = $latestValue;
         });
 
-        return $stream;
+        /** @phpstan-ignore return.type */
+        return awaitObservable($stream);
     }
 }
