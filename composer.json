@@ -11,7 +11,8 @@
   "require": {
     "php": "^8.4",
     "react/event-loop": "^1.3",
-    "reactivex/rxphp": "^2.0"
+    "reactivex/rxphp": "^2.0",
+    "wyrihaximus/react-awaitable-observable": "^1.2"
   },
   "require-dev": {
     "wyrihaximus/async-test-utilities": "^12.2",
