@@ -6,7 +6,6 @@ namespace WyriHaximus\React\Env\Notifier;
 
 use React\EventLoop\Loop;
 use React\EventLoop\TimerInterface;
-use Rx\Observable;
 use Rx\Subject\Subject;
 
 use function getenv;
@@ -16,7 +15,7 @@ final class Notifier
 {
     private const int CHECK_INTERVAL = 1;
 
-    public static function listen(string $name): Observable
+    public static function listen(string $name): Subject
     {
         $currentValue = getenv($name);
         $stream       = new Subject();
