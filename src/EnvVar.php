@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WyriHaximus\React\Env\Notifier;
 
+/** @api */
 final readonly class EnvVar
 {
     public function __construct(
