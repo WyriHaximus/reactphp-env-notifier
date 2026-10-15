@@ -68,5 +68,6 @@
                 "WyriHaximus\\TestUtilities\\TestCase::setUp"
             ]
         }
-    }
+    },
+    "threads": 64
 }
